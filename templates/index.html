@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Code+Pro:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script>
     window.MathJax = {
       tex: { inlineMath: [['\\(', '\\)'], ['$', '$']], displayMath: [['\\[', '\\]'], ['$$', '$$']] },
@@ -111,10 +110,10 @@
           \[
             \begin{cases}
               10x_1 - x_2 + 2x_3 = 6 \\
-              -x_1 + 11x_2 - x_3 + 3x_4 = 25 \quad \leftarrow \text{(we use 3×3 here)}\\
+              -x_1 + 11x_2 - x_3 = 25 \\
+              2x_1 - x_2 + 10x_3 = -11
             \end{cases}
           \]
-          <p>More precisely, solve:</p>
           \[
             A = \begin{bmatrix} 10 & -1 & 2 \\ -1 & 11 & -1 \\ 2 & -1 & 10 \end{bmatrix}, \quad
             b = \begin{bmatrix} 6 \\ 25 \\ -11 \end{bmatrix}
@@ -290,13 +289,13 @@
           <div class="matrix-sep">×</div>
           <div class="matrix-col">
             <div class="matrix-label">Vector \( x \) (initial guess)</div>
-            <div id="matrix-x0" class="matrix-grid"></div>
+            <div id="matrix-x0" class="matrix-grid vector-grid"></div>
             <div class="hint">Leave as 0 for zero initial guess</div>
           </div>
           <div class="matrix-sep">=</div>
           <div class="matrix-col">
             <div class="matrix-label">Vector \( b \)</div>
-            <div id="matrix-b" class="matrix-grid"></div>
+            <div id="matrix-b" class="matrix-grid vector-grid"></div>
           </div>
         </div>
 
@@ -317,15 +316,8 @@
         <div id="result-area" class="result-area hidden">
           <div id="result-summary" class="result-summary"></div>
           <div id="result-table-wrap" class="result-table-wrap">
-            <div class="table-header-row">
-              <h4>Iteration History</h4>
-              <button class="export-btn hidden" id="export-csv-btn">Export CSV</button>
-            </div>
+            <h4>Iteration History</h4>
             <div id="result-table"></div>
-          </div>
-          <div id="convergence-chart-wrap" class="convergence-wrap hidden">
-            <h4>Convergence Graph</h4>
-            <canvas id="convergence-chart"></canvas>
           </div>
         </div>
 
@@ -336,7 +328,8 @@
   </main>
 
   <footer class="footer">
-    <p>Jacobi Iteration · 2026</p>
+    <p>Jacobi Iteration · Numerical Methods PIT Project · 2026</p>
+    <p class="footer-sub">Built with Flask · MathJax · Vanilla JS</p>
   </footer>
 
   <script src="/static/js/calculator.js"></script>
